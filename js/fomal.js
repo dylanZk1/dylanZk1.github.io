@@ -97,6 +97,15 @@ function getDistance(e1, n1, e2, n2) {
   return Math.round(r);
 }
 
+function changeBeiAn() {
+  let BeiAnUri = document.getElementById("beianUri")
+  let BeiAnImg = document.getElementById("beianImg")
+  if(window.location.host.toString().indexOf("gorudolf.online")!=-1){
+    BeiAnImg.setAttribute("src","/assets/BeiAn.svg")
+    BeiAnUri.setAttribute("href","https://icp.gov.moe/?keyword=20230291")
+  }
+}
+
 function showWelcome() {
 
   let dist = getDistance(113.34499552, 23.15537143, ipLoacation.result.location.lng, ipLoacation.result.location.lat); //这里换成自己的经纬度
