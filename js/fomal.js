@@ -108,6 +108,7 @@ function changeBeiAn() {
 
 function showWelcome() {
 
+  changeBeiAn()
   let dist = getDistance(113.34499552, 23.15537143, ipLoacation.result.location.lng, ipLoacation.result.location.lat); //这里换成自己的经纬度
   let pos = ipLoacation.result.ad_info.nation;
   let ip;
