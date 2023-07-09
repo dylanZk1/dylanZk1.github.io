@@ -102,13 +102,13 @@ function changeBeiAn() {
   let BeiAnImg = document.getElementById("beianImg")
   if(window.location.host.toString().indexOf("gorudolf.online")!=-1){
     BeiAnImg.setAttribute("src","/assets/BeiAn.svg")
+    BeiAnImg.setAttribute("data-lazy-src","/assets/BeiAn.svg")
     BeiAnUri.setAttribute("href","https://icp.gov.moe/?keyword=20230291")
   }
 }
 
 function showWelcome() {
 
-  changeBeiAn()
   changeBeiAn()
   let dist = getDistance(113.34499552, 23.15537143, ipLoacation.result.location.lng, ipLoacation.result.location.lat); //这里换成自己的经纬度
   let pos = ipLoacation.result.ad_info.nation;
