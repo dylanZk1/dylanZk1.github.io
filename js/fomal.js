@@ -101,13 +101,15 @@ function changeBeiAn() {
   let BeiAnUri = document.getElementById("beianUri")
   let BeiAnImg = document.getElementById("beianImg")
   if(window.location.host.toString().indexOf("gorudolf.online")!=-1){
-    BeiAnImg.setAttribute("src","/assets/BeiAn.svg")
-    BeiAnImg.setAttribute("data-lazy-src","/assets/BeiAn.svg")
+    BeiAnImg.setAttribute("src","https://cdn.drobot.online/blog/BeiAn.svg")
+    BeiAnImg.setAttribute("data-lazy-src","https://cdn.drobot.online/blog/BeiAn.svg")
     BeiAnUri.setAttribute("href","https://icp.gov.moe/?keyword=20230291")
+    BeiAnUri.setAttribute("本站已加入萌ICP豪华套餐，萌ICP备20230291号")
   }else if(window.location.host.toString().indexOf("drobot.online")!=-1){
-    BeiAnImg.setAttribute("src","/assets/SuBeiAn.svg")
-    BeiAnImg.setAttribute("data-lazy-src","/assets/SuBeiAn.svg")
+    BeiAnImg.setAttribute("src","https://cdn.drobot.online/blog/SuBeiAn.svg")
+    BeiAnImg.setAttribute("data-lazy-src","https://cdn.drobot.online/blog/SuBeiAn.svg")
     BeiAnUri.setAttribute("href","javascript:void(0)")
+    BeiAnUri.setAttribute("本站已加入苏ICP豪华套餐，苏ICP备2023022716号")
   }
 }
 
@@ -318,7 +320,7 @@ document.addEventListener('pjax:complete', getWeibo);
 document.addEventListener('DOMContentLoaded', getWeibo);
 
 function getWeibo() {
-  fetch('https://weibo.'+ window.location.host.toString() + '/api').then(data => data.json()).then(data => {  // 这里要写上你的API!!!
+  fetch('https://weibo.'+ window.location.host.toString().split('.').slice(-2).join('.') + '/api').then(data => data.json()).then(data => {  // 这里要写上你的API!!!
     let html = '<style>.weibo-new{background:#ff3852}.weibo-hot{background:#ff9406}.weibo-jyzy{background:#ffc000}.weibo-recommend{background:#00b7ee}.weibo-adrecommend{background:#febd22}.weibo-friend{background:#8fc21e}.weibo-boom{background:#bd0000}.weibo-topic{background:#ff6f49}.weibo-topic-ad{background:#4dadff}.weibo-boil{background:#f86400}#weibo-container{overflow-y:auto;-ms-overflow-style:none;scrollbar-width:none}#weibo-container::-webkit-scrollbar{display:none}.weibo-list-item{display:flex;flex-direction:row;justify-content:space-between;flex-wrap:nowrap}.weibo-title{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-right:auto}.weibo-num{float:right}.weibo-hotness{display:inline-block;padding:0 6px;transform:scale(.8) translateX(-3px);color:#fff;border-radius:8px}</style>'
     html += '<div class="weibo-list">'
     let hotness = {
@@ -689,7 +691,7 @@ if (document.body.clientWidth > 992) {
         zoom: 0.9,
         borderRadius: 5 + 'px',
         right: 55.6 + 'px',
-        nekoImg: "/assets/916978f7c33a107f0258926937c1c371dea0e429.png",
+        nekoImg: "https://cdn.drobot.online/blog/916978f7c33a107f0258926937c1c371dea0e429.png",
         hoverMsg: "心机之蛙一直摸你肚zhi",
         color: "var(--theme-color)",
         during: 500,
@@ -3194,10 +3196,10 @@ if (localStorage.getItem("blogbg") != undefined) {
   setBg(localStorage.getItem("blogbg"));
 } else {
   document.getElementById("defineBg").innerText = `:root{
-    --default-bg: url(https://source.fomal.cc/img/home_bg.webp);
-    --darkmode-bg:url(https://source.fomal.cc/img/yuanshen1.webp);
-    --mobileday-bg: url(https://source.fomal.cc/img/snow.webp);
-    --mobilenight-bg: url(https://source.fomal.cc/img/mb8.webp);
+    --default-bg: url(https://cdn.drobot.online/img/home_bg.webp);
+    --darkmode-bg:url(https://cdn.drobot.online/img/yuanshen1.webp);
+    --mobileday-bg: url(https://cdn.drobot.online/img/snow.webp);
+    --mobilenight-bg: url(https://cdn.drobot.online/img/mb8.webp);
   }`;
 }
 // 切换背景主函数
@@ -3427,7 +3429,7 @@ function createWinbox() {
 <h3>1. 二次元</h3>
 <details class="folding-tag" cyan><summary> 查看二次元背景 </summary>
               <div class='content'>
-              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://source.fomal.cc/img/home_bg.webp)" class="imgbox" onclick="changeBg('url(https://source.fomal.cc/img/home_bg.webp)')"></a></div>
+              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.drobot.online/img/home_bg.webp)" class="imgbox" onclick="changeBg('url(https://cdn.drobot.online/img/home_bg.webp)')"></a></div>
               </div>
             </details>
 
@@ -3436,7 +3438,7 @@ function createWinbox() {
 
 <details class="folding-tag" cyan><summary> 查看风景背景 </summary>
               <div class='content'>
-              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://source.fomal.cc/img/fj1.webp)" class="imgbox" onclick="changeBg('url(https://source.fomal.cc/img/fj1.webp)')"></a></div>
+              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.drobot.online/img/fj1.webp)" class="imgbox" onclick="changeBg('url(https://cdn.drobot.online/img/fj1.webp)')"></a></div>
               </div>
             </details>
 
@@ -3444,7 +3446,7 @@ function createWinbox() {
 
 <details class="folding-tag" cyan><summary> 查看萌宠背景 </summary>
               <div class='content'>
-              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://source.fomal.cc/img/mc1.webp)" class="imgbox" onclick="changeBg('url(https://source.fomal.cc/img/mc1.webp)')"></a></div>
+              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.drobot.online/img/mc1.webp)" class="imgbox" onclick="changeBg('url(https://cdn.drobot.online/img/mc1.webp)')"></a></div>
               </div>
             </details>
 
@@ -3468,7 +3470,7 @@ function createWinbox() {
 <h3>6. 适配手机</h3>
 <details class="folding-tag" cyan><summary> 查看适配手机的背景 </summary>
               <div class='content'>
-              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://source.fomal.cc/img/mb4.webp)" class="pimgbox" onclick="changeBg('url(https://source.fomal.cc/img/mb4.webp)')"></a></div>
+              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.drobot.online/img/mb4.webp)" class="pimgbox" onclick="changeBg('url(https://cdn.drobot.online/img/mb4.webp)')"></a></div>
               </div>
             </details>
 
@@ -3484,7 +3486,7 @@ function createWinbox() {
 <h3>8. 自定义背景</h3>
 <details class="folding-tag" cyan><summary> 设置自定义背景 </summary>
               <div class='content'>
-              <p><center><input type="text" id="pic-link" size="70%" maxlength="1000" placeholder="请输入有效的图片链接，如 https://source.fomal.cc/img/home_bg.webp"></center></p><p><center><button type="button" onclick="getPicture()" style="background:var(--theme-color);width:35%;padding: 5px 0px 7px 0px;border-radius:30px;color:white;line-height:2;">🌈切换背景🌈</button></center></p>
+              <p><center><input type="text" id="pic-link" size="70%" maxlength="1000" placeholder="请输入有效的图片链接，如 https://cdn.drobot.online/img/home_bg.webp"></center></p><p><center><button type="button" onclick="getPicture()" style="background:var(--theme-color);width:35%;padding: 5px 0px 7px 0px;border-radius:30px;color:white;line-height:2;">🌈切换背景🌈</button></center></p>
               </div>
             </details>
 
