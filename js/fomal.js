@@ -100,13 +100,6 @@ function getDistance(e1, n1, e2, n2) {
 function InitTag() {
   let BeiAnUri = document.getElementById("beianUri")
   let BeiAnImg = document.getElementById("beianImg")
-  let CopyRightNode = document.getElementById("copyrightUri")
-  let CopyRightUri = new URL(CopyRightNode.getAttribute("href"))
-  if(CopyRightNode && window.location.host!="b.gorudolf.online"){
-     CopyRightUri.host = window.location.host
-     CopyRightNode.setAttribute("href",CopyRightUri)
-     CopyRightNode.innerHTML = CopyRightUri
-  }
   if(window.location.host.toString().indexOf("gorudolf.online")!=-1){
     BeiAnImg.setAttribute("src","https://cdn.drobot.online/blog/BeiAn.svg")
     BeiAnImg.setAttribute("data-lazy-src","https://cdn.drobot.online/blog/BeiAn.svg")
