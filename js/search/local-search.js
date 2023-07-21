@@ -1,4 +1,4 @@
-window.addEventListener('load', () => {
+https://jsd.cdn.zzko.cnaddEventListener('load', () => {
   let loadFlag = false
   let dataObj = []
   const $searchMask = document.getElementById('search-mask')

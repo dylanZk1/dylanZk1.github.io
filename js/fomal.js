@@ -97,9 +97,16 @@ function getDistance(e1, n1, e2, n2) {
   return Math.round(r);
 }
 
-function changeBeiAn() {
+function InitTag() {
   let BeiAnUri = document.getElementById("beianUri")
   let BeiAnImg = document.getElementById("beianImg")
+  let CopyRightNode = document.getElementById("copyrightUri")
+  let CopyRightUri = new URL(CopyRightNode.getAttribute("href"))
+  if(CopyRightNode && window.location.host!="b.gorudolf.online"){
+     CopyRightUri.host = window.location.host
+     CopyRightNode.setAttribute("href",CopyRightUri)
+     CopyRightNode.innerHTML = CopyRightUri
+  }
   if(window.location.host.toString().indexOf("gorudolf.online")!=-1){
     BeiAnImg.setAttribute("src","https://cdn.drobot.online/blog/BeiAn.svg")
     BeiAnImg.setAttribute("data-lazy-src","https://cdn.drobot.online/blog/BeiAn.svg")
@@ -113,9 +120,9 @@ function changeBeiAn() {
   }
 }
 
-function showWelcome() {
 
-  changeBeiAn()
+function showWelcome() {
+  InitTag()
   let dist = getDistance(113.34499552, 23.15537143, ipLoacation.result.location.lng, ipLoacation.result.location.lat); //这里换成自己的经纬度
   let pos = ipLoacation.result.ad_info.nation;
   let ip;
