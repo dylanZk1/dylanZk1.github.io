@@ -97,7 +97,7 @@ function getDistance(e1, n1, e2, n2) {
   return Math.round(r);
 }
 
-function InitTag() {
+function changeBeiAn() {
   let BeiAnUri = document.getElementById("beianUri")
   let BeiAnImg = document.getElementById("beianImg")
   if(window.location.host.toString().indexOf("gorudolf.online")!=-1){
@@ -110,12 +110,17 @@ function InitTag() {
     BeiAnImg.setAttribute("data-lazy-src","https://cdn.drobot.online/blog/SuBeiAn.svg")
     BeiAnUri.setAttribute("href","javascript:void(0)")
     BeiAnUri.setAttribute("title","本站已加入苏ICP豪华套餐，苏ICP备2023022716号")
+  }else if(window.location.host.toString().indexOf("localhost:4000")!=-1){
+    BeiAnImg.setAttribute("src","https://cdn.drobot.online/blog/SuBeiAn.svg")
+    BeiAnImg.setAttribute("data-lazy-src","https://cdn.drobot.online/blog/SuBeiAn.svg")
+    BeiAnUri.setAttribute("href","https://beian.miit.gov.cn/#/Integrated/index")
+    BeiAnUri.setAttribute("title","本站已加入苏ICP豪华套餐，苏ICP备2023022716号")
   }
 }
 
 
 function showWelcome() {
-  InitTag()
+  changeBeiAn()
   let dist = getDistance(113.34499552, 23.15537143, ipLoacation.result.location.lng, ipLoacation.result.location.lat); //这里换成自己的经纬度
   let pos = ipLoacation.result.ad_info.nation;
   let ip;
@@ -307,7 +312,9 @@ function showWelcome() {
     // console.log("Pjax无法获取#welcome-info元素🙄🙄🙄")
   }
 }
-window.onload = showWelcome;
+window.addEventListener('load',function () {
+   showWelcome()
+})
 // 如果使用了pjax在加上下面这行代码
 document.addEventListener('pjax:complete', showWelcome);
 
