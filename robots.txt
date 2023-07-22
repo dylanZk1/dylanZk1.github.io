@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://drobot.online/sitemap.xml
+Sitemap: https://drobot.online/baidusitemap.xml
