@@ -118,9 +118,193 @@ function changeBeiAn() {
   }
 }
 
+function addVideo(){
+  var VideoList = document.getElementsByClassName("artplayer-app")
+  if(VideoList){
+    for(var i=0;i<VideoList.length;i++){
+      let object = VideoList[i]
+      window["artplay"+i] = new Artplayer({
+        container: "#"+object.getAttribute("id"),
+        url: object.getAttribute("video_url")?object.getAttribute("video_url"):'',
+        poster: '',
+        volume: 0.5,
+        isLive: Boolean(object.getAttribute("isLive")),
+        muted: false,
+        autoplay: false,
+        pip: true,
+        autoSize: true,
+        autoMini: true,
+        screenshot: true,
+        setting: true,
+        loop: true,
+        flip: true,
+        playbackRate: true,
+        aspectRatio: true,
+        fullscreen: true,
+        fullscreenWeb: true,
+        subtitleOffset: true,
+        miniProgressBar: true,
+        mutex: true,
+        backdrop: true,
+        playsInline: true,
+        autoPlayback: false,
+        airplay: true,
+        theme: '#23ade5',
+        lang: navigator.language.toLowerCase(),
+        // moreVideoAttr: {
+        //   crossOrigin: 'anonymous',
+        // },
+        settings: [
+          {
+            width: 200,
+            html: 'Subtitle',
+            tooltip: '字幕',
+            icon: '<img width="22" heigth="22" src="https://artplayer.org/assets/img/subtitle.svg">',
+            selector: [
+              {
+                html: '是否开启',
+                tooltip: 'Show',
+                switch: true,
+                onSwitch: function (item) {
+                  item.tooltip = item.switch ? '关闭' : '开启';
+                  art.subtitle.show = !item.switch;
+                  return !item.switch;
+                },
+              },
+              {
+                default: true,
+                html: '字幕',
+                url: object.getAttribute("subtitle_src")?object.getAttribute("subtitle_src"):'',
+              },
+              // {
+              //     html: 'Chinese',
+              //     url: 'https://drobot-1300208283.cos.accelerate.myqcloud.com/subtitle.cn.srt',
+              // },
+              // {
+              //     html: 'Japanese',
+              //     url: 'https://drobot-1300208283.cos.accelerate.myqcloud.com/subtitle.jp.srt',
+              // },
+            ],
+            onSelect: function (item) {
+              window["artplay"+i].subtitle.switch(item.url, {
+                name: item.html,
+              });
+              return item.html;
+            },
+          },
+          {
+            html: 'Switcher',
+            icon: '<img width="22" heigth="22" src="https://cdn.drobot.online/img/state.svg">',
+            tooltip: 'OFF',
+            switch: false,
+            onSwitch: function (item) {
+              item.tooltip = item.switch ? 'OFF' : 'ON';
+              console.info('You clicked on the custom switch', item.switch);
+              return !item.switch;
+            },
+          },
+          {
+            html: 'Slider',
+            icon: '<img width="22" heigth="22" src="https://cdn.drobot.online/img/state.svg">',
+            tooltip: '5x',
+            range: [5, 1, 10, 0.1],
+            onRange: function (item) {
+              return item.range + 'x';
+            },
+          },
+        ],
+        contextmenu: [
+          {
+            html: 'Custom menu',
+            click: function (contextmenu) {
+              console.info('You clicked on the custom menu');
+              contextmenu.show = false;
+            },
+          },
+        ],
+        plugins: [
+          artplayerPluginHlsQuality({
+            // Show quality in control
+            control: true,
+            // Show quality in setting
+            setting: true,
+            // Get the resolution text from level
+            getResolution: (level) => level.height + 'P',
+            // I18n
+            title: 'Quality',
+            auto: 'Auto',
+          }),
+        ],
+        customType: {
+          m3u8: function playM3u8(video, url, art) {
+            if (Hls.isSupported()) {
+              if (art.hls) art.hls.destroy();
+              const hls = new Hls();
+              hls.loadSource(url);
+              hls.attachMedia(video);
+              art.hls = hls;
+              art.on('destroy', () => hls.destroy());
+            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+              video.src = url;
+            } else {
+              art.notice.show = 'Unsupported playback format: m3u8';
+            }
+          }
+        },
+        // layers: [
+        //     {
+        //         html: '<img width="100" src="https://artplayer.org/assets/sample/layer.png">',
+        //         click: function () {
+        //             window.open('https://aimu.app');
+        //             console.info('You clicked on the custom layer');
+        //         },
+        //         style: {
+        //             position: 'absolute',
+        //             top: '20px',
+        //             right: '20px',
+        //             opacity: '.9',
+        //         },
+        //     },
+        // ],
+        // quality: [
+        //     {
+        //         default: true,
+        //         html: 'SD 480P',
+        //         url: 'https://drobot-1300208283.cos.accelerate.myqcloud.com/video.mp4',
+        //     },
+        //     {
+        //         html: 'HD 720P',
+        //         url: 'https://drobot-1300208283.cos.accelerate.myqcloud.com/video.mp4',
+        //     },
+        // ],
+        // thumbnails: {
+        //     url: 'https://artplayer.org/assets/sample/thumbnails.png',
+        //     number: 60,
+        //     column: 10,
+        // },
+        subtitle: {
+          url: object.getAttribute("subtitle_src")?object.getAttribute("subtitle_src"):'',
+          type: 'srt',
+          style: {
+            color: '#00FFFFFF',
+            fontSize: '40px',
+          },
+          encoding: 'utf-8',
+        },
+        // highlight: [],
+        icons: {
+          loading: '<img src="https://cdn.drobot.online/img/ploading.gif">',
+          state: '<img width="150" heigth="150" src="https://cdn.drobot.online/img/state.svg">',
+          indicator: '<img width="16" heigth="16" src="https://cdn.drobot.online/img/indicator.svg">',
+        },
+      })
+    }
+  }
+}
 
 function showWelcome() {
   changeBeiAn()
+  addVideo()
   let dist = getDistance(113.34499552, 23.15537143, ipLoacation.result.location.lng, ipLoacation.result.location.lat); //这里换成自己的经纬度
   let pos = ipLoacation.result.ad_info.nation;
   let ip;

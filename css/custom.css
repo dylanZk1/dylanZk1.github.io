@@ -17,6 +17,12 @@
     font-display: block;
 }
 
+.artplayer-app{
+    width: calc(100% + 3px);
+    height: 400px;
+    vertical-align:middle;
+}
+
 /*社交账号图标样式*/
 svg.social_icon {
     width: 1.20em;
