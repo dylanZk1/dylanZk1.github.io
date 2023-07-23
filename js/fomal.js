@@ -167,7 +167,7 @@ function addVideo(){
                 switch: true,
                 onSwitch: function (item) {
                   item.tooltip = item.switch ? '关闭' : '开启';
-                  art.subtitle.show = !item.switch;
+                  window["artplay"+i].subtitle.show = !item.switch;
                   return !item.switch;
                 },
               },
@@ -287,7 +287,8 @@ function addVideo(){
           type: 'srt',
           style: {
             color: '#00FFFFFF',
-            fontSize: '40px',
+            fontSize: '30px',
+            lineHeight:'0.85',
           },
           encoding: 'utf-8',
         },

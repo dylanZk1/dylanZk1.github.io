@@ -23,6 +23,10 @@
     vertical-align:middle;
 }
 
+.tagSSLink{
+    width: calc(60% + 3px);
+}
+
 /*社交账号图标样式*/
 svg.social_icon {
     width: 1.20em;
