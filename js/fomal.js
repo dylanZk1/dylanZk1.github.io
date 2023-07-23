@@ -123,6 +123,7 @@ function addVideo(){
   if(VideoList){
     for(var i=0;i<VideoList.length;i++){
       let object = VideoList[i]
+      var setL = i
       window["artplay"+i] = new Artplayer({
         container: "#"+object.getAttribute("id"),
         url: object.getAttribute("video_url")?object.getAttribute("video_url"):'',
@@ -167,7 +168,7 @@ function addVideo(){
                 switch: true,
                 onSwitch: function (item) {
                   item.tooltip = item.switch ? '关闭' : '开启';
-                  window["artplay"+i].subtitle.show = !item.switch;
+                  window["artplay"+setL].subtitle.show = !item.switch;
                   return !item.switch;
                 },
               },
