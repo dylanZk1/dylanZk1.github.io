@@ -1,3 +1,6 @@
+var ignoredDOMList = []
+
+
 /* 阅读进度 start */
 document.addEventListener('pjax:complete', function () {
   window.onscroll = percent;
@@ -5,6 +8,8 @@ document.addEventListener('pjax:complete', function () {
 document.addEventListener('DOMContentLoaded', function () {
   window.onscroll = percent;
 });
+
+
 // 页面百分比
 function percent() {
 
@@ -124,8 +129,10 @@ function addVideo(){
     for(var i=0;i<VideoList.length;i++){
       let object = VideoList[i]
       var setL = i
+      var videoID = "#"+object.getAttribute("id")
+      ignoredDOMList.push(videoID)
       window["artplay"+i] = new Artplayer({
-        container: "#"+object.getAttribute("id"),
+        container: videoID,
         url: object.getAttribute("video_url")?object.getAttribute("video_url"):'',
         poster: '',
         volume: 0.5,
@@ -1106,12 +1113,38 @@ document.body.addEventListener('touchmove', function () {
 
 }, { passive: false });
 
+function getMousePos(event) {
+  var e = event || window.event;
+  var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+  var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+  var x = e.pageX || e.clientX + scrollX;
+  var y = e.pageY || e.clientY + scrollY;
+  return { 'x': x, 'y': y };
+}
+
+function isMouseAtDOM(event){
+  if(!ignoredDOMList) return false
+  for(var i=0; i<ignoredDOMList.length; i++){
+    var target_position = $(ignoredDOMList[i]).offset()
+    var top = target_position.top//计算target的top
+    var left = target_position.left;//计算target的left
+    var left_side = left + $(ignoredDOMList[i]).width()//计算target的宽度，这是因为我要判断的鼠标位置可能位于target的右方，如果是左方，则无需left_side,left就好
+    var hand_position = getMousePos(event)
+    var y = hand_position.y
+    var x = hand_position.x
+    if(!(top > y || left_side < x)){
+      return false
+    }
+  }
+  return true;
+}
 function popupMenu() {
   window.oncontextmenu = function (event) {
     // if (event.ctrlKey) return true;
 
     // 当关掉自定义右键时候直接返回
     if (mouseMode == "off") return true;
+    if(!isMouseAtDOM(event)) return true;
 
     $('.rightMenu-group.hide').hide();
     if (document.getSelection().toString()) {
@@ -1184,24 +1217,24 @@ function popupMenu() {
       $('#menu-paste').show();
       rmf.paste = function () {
         navigator.permissions
-          .query({
-            name: 'clipboard-read'
-          })
-          .then(result => {
-            if (result.state == 'granted' || result.state == 'prompt') {
-              //读取剪贴板
-              navigator.clipboard.readText().then(text => {
-                console.log(text)
-                insertAtCursor(el, text)
-              })
-            } else {
-              Snackbar.show({
-                text: '请允许读取剪贴板！',
-                pos: 'top-center',
-                showAction: false,
-              })
-            }
-          })
+            .query({
+              name: 'clipboard-read'
+            })
+            .then(result => {
+              if (result.state == 'granted' || result.state == 'prompt') {
+                //读取剪贴板
+                navigator.clipboard.readText().then(text => {
+                  console.log(text)
+                  insertAtCursor(el, text)
+                })
+              } else {
+                Snackbar.show({
+                  text: '请允许读取剪贴板！',
+                  pos: 'top-center',
+                  showAction: false,
+                })
+              }
+            })
       }
     }
     let pageX = event.clientX + 10;
@@ -1229,7 +1262,7 @@ function popupMenu() {
     rmf.showRightMenu(true, pageY, pageX);
     $('.rmMask').attr('style', 'display: flex');
     return false;
-  };
+  }
 
   window.addEventListener('click', function () {
     rmf.showRightMenu(false);
