@@ -111,13 +111,13 @@ function changeBeiAn() {
     BeiAnUri.setAttribute("href","https://icp.gov.moe/?keyword=20230291")
     BeiAnUri.setAttribute("title","本站已加入萌ICP豪华套餐，萌ICP备20230291号")
   }else if(window.location.host.toString().indexOf("drobot.online")!=-1){
-    BeiAnImg.setAttribute("src","https://resource.drobot.online/blog/SuBeiAn.svg")
-    BeiAnImg.setAttribute("data-lazy-src","https://resource.drobot.online/blog/SuBeiAn.svg")
+    BeiAnImg.setAttribute("src","https://cdn.drobot.online/blog/SuBeiAn.svg")
+    BeiAnImg.setAttribute("data-lazy-src","https://cdn.drobot.online/blog/SuBeiAn.svg")
     BeiAnUri.setAttribute("href","javascript:void(0)")
     BeiAnUri.setAttribute("title","本站已加入苏ICP豪华套餐，苏ICP备2023022716号")
   }else if(window.location.host.toString().indexOf("localhost:4000")!=-1){
-    BeiAnImg.setAttribute("src","https://resource.drobot.online/blog/SuBeiAn.svg")
-    BeiAnImg.setAttribute("data-lazy-src","https://resource.drobot.online/blog/SuBeiAn.svg")
+    BeiAnImg.setAttribute("src","https://cdn.drobot.online/blog/SuBeiAn.svg")
+    BeiAnImg.setAttribute("data-lazy-src","https://cdn.drobot.online/blog/SuBeiAn.svg")
     BeiAnUri.setAttribute("href","https://beian.miit.gov.cn/#/Integrated/index")
     BeiAnUri.setAttribute("title","本站已加入苏ICP豪华套餐，苏ICP备2023022716号")
   }
