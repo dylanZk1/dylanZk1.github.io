@@ -202,7 +202,7 @@ function addVideo(){
           },
           {
             html: 'Switcher',
-            icon: '<img width="22" heigth="22" src="https://cdn.drobot.online/img/state.svg">',
+            icon: '<img width="22" heigth="22" src="https://cdn.drobot.online/imgB/state.svg">',
             tooltip: 'OFF',
             switch: false,
             onSwitch: function (item) {
@@ -213,7 +213,7 @@ function addVideo(){
           },
           {
             html: 'Slider',
-            icon: '<img width="22" heigth="22" src="https://cdn.drobot.online/img/state.svg">',
+            icon: '<img width="22" heigth="22" src="https://cdn.drobot.online/imgB/state.svg">',
             tooltip: '5x',
             range: [5, 1, 10, 0.1],
             onRange: function (item) {
@@ -302,9 +302,9 @@ function addVideo(){
         },
         // highlight: [],
         icons: {
-          loading: '<img src="https://cdn.drobot.online/img/ploading.gif">',
-          state: '<img width="150" heigth="150" src="https://cdn.drobot.online/img/state.svg">',
-          indicator: '<img width="16" heigth="16" src="https://cdn.drobot.online/img/indicator.svg">',
+          loading: '<img src="https://cdn.drobot.online/imgB/ploading.gif">',
+          state: '<img width="150" heigth="150" src="https://cdn.drobot.online/imgB/state.svg">',
+          indicator: '<img width="16" heigth="16" src="https://cdn.drobot.online/imgB/indicator.svg">',
         },
       })
     }
@@ -3422,10 +3422,10 @@ if (localStorage.getItem("blogbg") != undefined) {
   setBg(localStorage.getItem("blogbg"));
 } else {
   document.getElementById("defineBg").innerText = `:root{
-    --default-bg: url(https://cdn.drobot.online/img/home_bg.webp);
-    --darkmode-bg:url(https://cdn.drobot.online/img/yuanshen1.webp);
-    --mobileday-bg: url(https://cdn.drobot.online/img/snow.webp);
-    --mobilenight-bg: url(https://cdn.drobot.online/img/mb8.webp);
+    --default-bg: url(https://cdn.drobot.online/imgB/home_bg.webp);
+    --darkmode-bg:url(https://cdn.drobot.online/imgB/yuanshen1.webp);
+    --mobileday-bg: url(https://cdn.drobot.online/imgB/snow.webp);
+    --mobilenight-bg: url(https://cdn.drobot.online/imgB/mb8.webp);
   }`;
 }
 // 切换背景主函数
@@ -3655,7 +3655,7 @@ function createWinbox() {
 <h3>1. 二次元</h3>
 <details class="folding-tag" cyan><summary> 查看二次元背景 </summary>
               <div class='content'>
-              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.drobot.online/img/home_bg.webp)" class="imgbox" onclick="changeBg('url(https://cdn.drobot.online/img/home_bg.webp)')"></a></div>
+              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.drobot.online/imgB/home_bg.webp)" class="imgbox" onclick="changeBg('url(https://cdn.drobot.online/imgB/home_bg.webp)')"></a></div>
               </div>
             </details>
 
@@ -3664,7 +3664,7 @@ function createWinbox() {
 
 <details class="folding-tag" cyan><summary> 查看风景背景 </summary>
               <div class='content'>
-              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.drobot.online/img/fj1.webp)" class="imgbox" onclick="changeBg('url(https://cdn.drobot.online/img/fj1.webp)')"></a></div>
+              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.drobot.online/imgB/fj1.webp)" class="imgbox" onclick="changeBg('url(https://cdn.drobot.online/imgB/fj1.webp)')"></a></div>
               </div>
             </details>
 
@@ -3672,7 +3672,7 @@ function createWinbox() {
 
 <details class="folding-tag" cyan><summary> 查看萌宠背景 </summary>
               <div class='content'>
-              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.drobot.online/img/mc1.webp)" class="imgbox" onclick="changeBg('url(https://cdn.drobot.online/img/mc1.webp)')"></a></div>
+              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.drobot.online/imgB/mc1.webp)" class="imgbox" onclick="changeBg('url(https://cdn.drobot.online/imgB/mc1.webp)')"></a></div>
               </div>
             </details>
 
@@ -3696,7 +3696,7 @@ function createWinbox() {
 <h3>6. 适配手机</h3>
 <details class="folding-tag" cyan><summary> 查看适配手机的背景 </summary>
               <div class='content'>
-              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.drobot.online/img/mb4.webp)" class="pimgbox" onclick="changeBg('url(https://cdn.drobot.online/img/mb4.webp)')"></a></div>
+              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.drobot.online/imgB/mb4.webp)" class="pimgbox" onclick="changeBg('url(https://cdn.drobot.online/imgB/mb4.webp)')"></a></div>
               </div>
             </details>
 
@@ -3712,7 +3712,7 @@ function createWinbox() {
 <h3>8. 自定义背景</h3>
 <details class="folding-tag" cyan><summary> 设置自定义背景 </summary>
               <div class='content'>
-              <p><center><input type="text" id="pic-link" size="70%" maxlength="1000" placeholder="请输入有效的图片链接，如 https://cdn.drobot.online/img/home_bg.webp"></center></p><p><center><button type="button" onclick="getPicture()" style="background:var(--theme-color);width:35%;padding: 5px 0px 7px 0px;border-radius:30px;color:white;line-height:2;">🌈切换背景🌈</button></center></p>
+              <p><center><input type="text" id="pic-link" size="70%" maxlength="1000" placeholder="请输入有效的图片链接，如 https://cdn.drobot.online/imgB/home_bg.webp"></center></p><p><center><button type="button" onclick="getPicture()" style="background:var(--theme-color);width:35%;padding: 5px 0px 7px 0px;border-radius:30px;color:white;line-height:2;">🌈切换背景🌈</button></center></p>
               </div>
             </details>
 
