@@ -307,6 +307,8 @@ function addVideo(){
           indicator: '<img width="16" heigth="16" src="https://cdn.drobot.online/imgB/indicator.svg">',
         },
       })
+      object.removeAttribute("video_url")
+      object.removeAttribute("subtitle_src")
     }
   }
 }
