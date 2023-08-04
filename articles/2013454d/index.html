@@ -16,10 +16,10 @@
 (function() {
   var hm = document.createElement("script");
   hm.src = "https://hm.baidu.com/hm.js?3967e168adc56b1ab96d59d5b3bc5d72";
-  var s = document.getElementsByTagName("script")[0]; 
+  var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(hm, s);
 })();
-</script><script>const GLOBAL_CONFIG = { 
+</script><script>const GLOBAL_CONFIG = {
   root: '/',
   algolia: {"appId":"O65UAKYKPW","apiKey":"22c9240703a98d761c86f2c35a345ac0","indexName":"rudolf blog","hits":{"per_page":5},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
   localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
@@ -103,7 +103,7 @@
         return item.value
       }
     }
-  
+
     win.getScript = url => new Promise((resolve, reject) => {
       const script = document.createElement('script')
       script.src = url
@@ -117,7 +117,7 @@
       }
       document.head.appendChild(script)
     })
-  
+
       win.activateDarkMode = function () {
         document.documentElement.setAttribute('data-theme', 'dark')
         if (document.querySelector('meta[name="theme-color"]') !== null) {
@@ -131,14 +131,14 @@
         }
       }
       const t = saveToLocal.get('theme')
-    
+
           const now = new Date()
           const hour = now.getHours()
           const isNight = hour <= 6 || hour >= 18
           if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
           else if (t === 'light') activateLightMode()
           else activateDarkMode()
-        
+
       const asideStatus = saveToLocal.get('aside-status')
       if (asideStatus !== undefined) {
         if (asideStatus === 'hide') {
@@ -147,7 +147,7 @@
           document.documentElement.classList.remove('hide-aside')
         }
       }
-    
+
     const detectApple = () => {
       if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
         document.documentElement.classList.add('apple')
@@ -736,14 +736,14 @@ You can regulate the speed of the animation by adding the CSS class or . faa-fas
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;% videos, 2 %&#125;</span><br><span class="line">&#123;% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG<span class="emphasis">_0341.mov %&#125;</span></span><br><span class="line"><span class="emphasis">&#123;% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_</span>0341.mov %&#125;</span><br><span class="line">&#123;% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG<span class="emphasis">_0341.mov %&#125;</span></span><br><span class="line"><span class="emphasis">&#123;% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_</span>0341.mov %&#125;</span><br><span class="line">&#123;% endvideos %&#125;</span><br></pre></td></tr></table></figure>
 <p>3.25%宽度</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;% videos, 4 %&#125;</span><br><span class="line">&#123;% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG<span class="emphasis">_0341.mov %&#125;</span></span><br><span class="line"><span class="emphasis">&#123;% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_</span>0341.mov %&#125;</span><br><span class="line">&#123;% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG<span class="emphasis">_0341.mov %&#125;</span></span><br><span class="line"><span class="emphasis">&#123;% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_</span>0341.mov %&#125;</span><br><span class="line">&#123;% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG<span class="emphasis">_0341.mov %&#125;</span></span><br><span class="line"><span class="emphasis">&#123;% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_</span>0341.mov %&#125;</span><br><span class="line">&#123;% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG<span class="emphasis">_0341.mov %&#125;</span></span><br><span class="line"><span class="emphasis">&#123;% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_</span>0341.mov %&#125;</span><br><span class="line">&#123;% endvideos %&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="分栏-4"><p>1.100%宽度</p>
-<div class="video"><div id=mUoOQ9fGBjBeaPt 
-         class="artplayer-app" 
+<div class="video"><div id=mUoOQ9fGBjBeaPt
+         class="artplayer-app"
          video_url='https://drobot-1300208283.cos.ap-nanjing.myqcloud.com/video.mp4'
          isLive
          subtitle_src='https://drobot-1300208283.cos.ap-nanjing.myqcloud.com/subtitle.srt'></div></div>
-<div class="video"><div id=SGVj8ejhNSaPc3J 
-         class="artplayer-app" 
-         video_url='https://cdn.drobot.online/test/sample/video.flv'
+<div class="video"><div id=SGVj8ejhNSaPc3J
+         class="artplayer-app"
+         video_url='https://cdn.drobot.online/test/video.flv'
          isLive
          subtitle_src=''></div></div>
 <p>2.50%宽度</p>
@@ -1212,7 +1212,7 @@ document.getElementById('loading-box').addEventListener('click',()=> {preloader.
       }
     }
   }
-  
+
   const script = document.createElement('script')
   script.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js'
   script.id = 'MathJax-script'
@@ -1234,13 +1234,13 @@ var pjax = new Pjax({
 
 document.addEventListener('pjax:send', function () {
 
-  // removeEventListener scroll 
+  // removeEventListener scroll
   window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
   window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
 
   typeof preloader === 'object' && preloader.initLoading()
   document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
-  
+
   if (window.aplayers) {
     for (let i = 0; i < window.aplayers.length; i++) {
       if (!window.aplayers[i].options.fixed) {
